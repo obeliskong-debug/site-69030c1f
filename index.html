@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Marius Popescu - Avocat de drept penal cu peste 10 ani de experiență. Specializat în apărarea drepturilor dumneavoastră în fața instanțelor.">
+    <meta name="author" content="Marius Popescu">
+    <title>Marius Popescu - Avocat de drept penal</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #334155;
+            --accent-color: #2563eb;
+            --bg-color: #f8fafc;
+            --white: #ffffff;
+            --text-light: #64748b;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--secondary-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: var(--radius);
+            font-weight: 600;
+            border: 2px solid var(--primary-color);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), url('https://source.unsplash.com/1600x900/?courtroom,law');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 0;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image img {
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .about-text h2 {
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 2rem;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-item span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Services Section */
+        #services {
+            background-color: var(--bg-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-bottom-color: var(--accent-color);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item span {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .contact-item a {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                transform: translateY(-150%);
+                transition: var(--transition);
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .stats {
+                justify-content: space-between;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav aria-label="Main Navigation">
+                <a href="#hero" class="logo">Marius Popescu</a>
+                <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+                    ☰
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#hero" class="active">Acasă</a></li>
+                    <li><a href="#about">Despre</a></li>
+                    <li><a href="#services">Servicii</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container hero-content">
+            <h1>Experiență în Dreptul Penal</h1>
+            <p>Marius Popescu. Peste 10 ani de practică dedicată apărării drepturilor și libertăților fundamentale în fața instanțelor.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn">Contactează-mă</a>
+                <a href="#services" class="btn btn-outline">Află mai mult</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://source.unsplash.com/800x600/?lawyer,office" alt="Marius Popescu la birou">
+                </div>
+                <div class="about-text">
+                    <h2>Despre Mine</h2>
+                    <p>Sunt un avocat cu peste 10 ani în domeniu, specializat în drept penal și procedură penală. De-a lungul carierei mele, am oferit asistență și reprezentare juridică într-un număr semnificativ de cauze complexe, atât în fața instanțelor locale, cât și a celor superioare.</p>
+                    <p>Misiunea mea este să asigur fiecărui client o apărare eficientă și dreptul la un proces echitabil. Mă angajez să ofer soluții juridice personalizate, bazate pe o analiză atentă a detaliilor fiecărui caz.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <strong>10+</strong>
+                            <span>Ani Experiență</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>500+</strong>
+                            <span>Cazuri Gestionate</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong>98%</strong>
+                            <span>Succes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Domenii de Expertiză</h2>
+            <p class="section-subtitle">Ofer servicii juridice complete în domeniul dreptului penal, acoperind toate etapele procesului.</p>
+            
+            <div class="services-grid">
+                <article class="service-card">
+                    <div class="service-icon">⚖️</div>
+                    <h3>Reprezentare în Instanță</h3>
+                    <p>Asistare și reprezentare în fața judecătoriilor, tribunalelor și curților de apel în toate tipurile de infracțiuni.</p>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Apărare Penală</h3>
+                    <p>Strategie de apărare personalizată pentru acuzații de infracțiuni economice, violență, corupție sau infracțiuni rutiere.</p>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Consultanță Juridică</h3>
+                    <p>Consiliere preliminară și analiza documentelor pentru evitarea sau diminuarea riscurilor penale.</p>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">📂</div>
+                    <h3>Redactare Acte</h3>
+                    <p>Întocmirea de plângeri, recursuri, memorii și alte acte procedurale necesare desfășurării procesului.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container contact-container">
+            <h2 class="section-title">Hai să vorbim</h2>
+            <p class="section-subtitle">Programați o consultație pentru a discuta detaliile cazului dumneavoastră în confidențialitate.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>Email</span>
+                    <a href="mailto:contact@mariuspopescu.ro">contact@mariuspopescu.ro</a>
+                </div>
+                <div class="contact-item">
+                    <span>Telefon</span>
+                    <a href="tel:+40722000000">+40 722 000 000</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Marius Popescu. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('nav-links');
+            const links = document.querySelectorAll('.nav-links a');
+            const header = document.getElementById('header');
+
+            // Toggle mobile menu
+            function toggleMenu() {
+                navLinks.classList.toggle('active');
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            
+            // Close menu when a link is clicked
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // Keyboard accessibility for hamburger
+            hamburger.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    toggleMenu();
+                }
+            });
+
+            // Active link highlighting on scroll
+            const sections = document.querySelectorAll('section');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                links.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
